@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using CodingExercise.Models;
 
 namespace CodingExercise
 {
@@ -32,6 +34,8 @@ namespace CodingExercise
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CodingExercise", Version = "v1" });
             });
+
+            services.AddDbContext<PaymentContext>(opt => opt.UseInMemoryDatabase("PaymentTransactions"))
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
